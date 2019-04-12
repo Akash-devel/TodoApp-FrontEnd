@@ -1,0 +1,51 @@
+<div class="container" style="padding-top:10px;">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+
+          <h1 style="text-align:center">Change Password</h1><br>
+
+          <!--Form Start-->
+          <form (ngSubmit)="onSubmit()" #changePasswordForm="ngForm">
+
+            <!--New Password-->
+            <div class="form-group">
+              <span style="font-weight: bold">New Password: </span>
+              <div class="input-group mb-3">
+
+                <input type="password" name="inputNewPwd" id="inputNewPwd" [(ngModel)]="inputNewPwd" class="form-control"
+                  placeholder="New Password" #newPassword="ngModel" required autofocus>
+
+              </div>
+              <div [hidden]="newPassword.valid || newPassword.pristine" class="alert alert-danger">New Password not
+                provided
+              </div>
+            </div>
+
+            <!--Confirm Password-->
+            <div class="form-group">
+              <span style="font-weight: bold">Confirm Password: </span>
+              <div class="input-group mb-3">
+
+                <input type="password" name="confirmPwd" id="confirmPwd" [(ngModel)]="confirmPwd" class="form-control"
+                  placeholder="Confirm Password" #confirmPassword="ngModel" required>
+
+              </div>
+              <div [hidden]="confirmPassword.valid || confirmPassword.pristine" class="alert alert-danger">
+                Confirm Password text is blank</div>
+            </div>
+
+
+            <button type="button" class="btn btn-block btn btn-success" [disabled]="!changePasswordForm.form.valid"
+              (click)="submitPwdFunction()">Submit</button>
+          </form>
+          <!--End of Form-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Container div end-->

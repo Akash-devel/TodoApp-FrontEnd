@@ -1,0 +1,108 @@
+<div class="container-fluid">
+
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" style="color: white">To-Do App</a>
+    <form class="form-inline">
+
+      <button class="btn btn-outline-success" type="button" (click)="gotoLogin()">Login</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-outline-secondary" type="button">Sign-Up</button>
+    </form>
+  </nav>
+</div>
+
+<div class="container" style="padding-top:10px;">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card mx-4">
+        <div class="card-body p-4">
+
+          <h1 style="text-align:center">Sign-Up to Use the App</h1><br>
+
+          <!--Form Start-->
+          <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+
+            <!--First Name-->
+            <div class="form-group">
+              <span style="font-weight: bold">First Name: </span>
+              <div class="input-group mb-3">
+
+                <input type="text" name="inputFirstName" id="inputFirstName" [(ngModel)]="inputFirstName"
+                  class="form-control" placeholder="First Name" #firstName="ngModel" required autofocus>
+
+              </div>
+              <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">FirstName is required
+              </div>
+            </div>
+
+            <!--Last Name-->
+            <div class="form-group">
+              <span style="font-weight: bold">Last Name: </span>
+              <div class="input-group mb-3">
+
+                <input type="text" name="inputLastName" id="inputLastName" [(ngModel)]="inputLastName"
+                  class="form-control" placeholder="Last Name" #lastName="ngModel" required>
+
+              </div>
+              <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">LastName is required</div>
+            </div>
+
+            <!--Email-->
+            <div class="form-group">
+              <span style="font-weight: bold">Email: </span>
+              <div class="input-group mb-3">
+
+                <input type="email" name="inputEmail" id="inputEmail" [(ngModel)]="inputEmail" class="form-control"
+                  placeholder="email@example.com" #email="ngModel" required>
+
+              </div>
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is required</div>
+            </div>
+
+            <!--Country-->
+            <div class="form-group">
+              <span style="font-weight: bold">Country: </span>
+              <div class="input-group mb-3">
+
+                <select name="inputCountry" id="inputCountry" [(ngModel)]="inputCountry" class="form-control"
+                  #country="ngModel" (change)="onChangeCountry($event)" required>
+                  <option *ngFor="let Country of CountryArray" [value]="Country"> {{Country}}</option>
+                </select>
+              </div>
+            </div>
+
+            <!--Mobile-->
+            <div class="form-group">
+              <span style="font-weight: bold">Mobile: </span>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control col-3" value={{CountryISDCode}} readonly> &nbsp;&nbsp;
+                <input type="text" name="inputMobile" id="inputMobile" [(ngModel)]="inputMobile" class="form-control"
+                  placeholder="Your Mobile No." #mobile="ngModel" required>
+
+              </div>
+              <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">Mobile No. is required</div>
+            </div>
+
+            <!--Password-->
+            <div class="form-group">
+              <span style="font-weight: bold">Password: </span>
+              <div class="input-group mb-3">
+                <input type="password" name="inputPassword" id="inputPassword" [(ngModel)]="inputPassword"
+                  class="form-control" placeholder="Password" #pwd="ngModel" required>
+
+              </div>
+              <div [hidden]="pwd.valid || pwd.pristine" class="alert alert-danger">Password is required</div>
+            </div>
+
+            <button type="button" class="btn btn-block btn-primary" [disabled]="!signUpForm.form.valid"
+              (click)="signupFunction()">Sign Up</button>
+          </form>
+          <!--End of Form-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Container div end-->

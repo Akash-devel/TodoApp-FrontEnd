@@ -1,0 +1,20 @@
+<p>
+  task-create works!
+</p>
+<div class= "container">
+<form [formGroup]="personsForm" (submit)="onSubmit()" #taskCreateForm="ngForm">
+  <div formArrayName="persons">
+    <div *ngFor="let person of persons; let i = index;" [formGroupName]="i">
+      Name: <input placeholder="Person {{ i + 1 }}" type="text" formControlName="name"><br>
+      <button (click)="removePerson(i)">Remove Item</button>
+      <br><br>
+
+    </div>
+  </div>
+  <button type="button" (click)="addPerson()" [disabled]="!taskCreateForm.form.valid">  Add Item </button>
+  <br><br><br><br><br><br>
+  <button>
+    Submit
+  </button>
+</form>
+</div>

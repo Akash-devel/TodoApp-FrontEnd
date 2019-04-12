@@ -1,0 +1,20 @@
+<div class="container" style="padding-top: 10px">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" [routerLink]="['/Dashboard']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/friends-zone']">Friends</a>
+    </li>
+    <li style="position: absolute; right: 0; padding-right: 2rem;">
+      <button class="btn btn btn-outline-danger" type="button" (click)="LogOut()">Log Out</button>
+    </li>
+  </ul>
+
+</div>
+
+<div class="container" style="padding-top: 10px">
+  <img alt="An image" class="img-fluid" src="./../../../assets/Dashboard_Image.jpg">
+  <button class="btn btn btn-outline-warning top-left-createTask" type="button" (click)="goToCreateTask()"> Create Task </button>
+  <button class="btn btn btn-outline-warning top-left-undo" type="button" (click)="goToCreateTask()"> Undo </button>
+</div>

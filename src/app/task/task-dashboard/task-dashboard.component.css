@@ -1,0 +1,20 @@
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+/* Top left button1 */
+.top-left-createTask {
+    position: absolute;
+    top: 21px;
+    left: 26px;
+  }
+
+  /* Top left button2 */
+  .top-left-undo {
+    position: absolute;
+    top: 21px;
+    left: 180px;
+  }
